@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
+  background-color: #010409;
+  background-size: 10px;
+  @apply font-mono text-white;
+}
+.active {
+  color: #f16056;
+}
+
+.animate-levitate {
+  animation: levitate linear infinite 1.5s;
+}
+
+@keyframes levitate {
+  50% {
+    translate: 0 -10px;
+    scale: 110%;
+  }
+}
