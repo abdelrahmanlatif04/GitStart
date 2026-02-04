@@ -74,7 +74,7 @@ function toggle(idx) {
           </a>
 
           <iframe
-            src="/src/assets/progit.pdf"
+            src="https://people.computing.clemson.edu/~jmarty/courses/commonCourseContent/common/progit.pdf"
             class="w-56 sm:w-64 aspect-[0.7] mx-auto rounded-xl shadow-lg"
           ></iframe>
         </div>
