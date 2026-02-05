@@ -1,7 +1,9 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import { reactive, ref } from "vue";
-
+defineOptions({
+  name: "Home",
+});
 const questions = reactive([
   {
     question: "what is Version Control",
@@ -73,10 +75,10 @@ function toggle(idx) {
             Official Git Book
           </a>
 
-          <iframe
-            src="https://people.computing.clemson.edu/~jmarty/courses/commonCourseContent/common/progit.pdf"
+          <img
+            src="../assets/book.jpg"
             class="w-56 sm:w-64 aspect-[0.7] mx-auto rounded-xl shadow-lg"
-          ></iframe>
+          />
         </div>
       </article>
     </div>

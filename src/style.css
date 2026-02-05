@@ -11,6 +11,10 @@
   color: #f16056;
 }
 
+.dialogue {
+  /* @apply max-w-[600px] w-fit min-w-40 shadow-md ml-auto mr-10 relative  px-2 rounded my-5 ; */
+}
+
 .animate-levitate {
   animation: levitate linear infinite 1.5s;
 }

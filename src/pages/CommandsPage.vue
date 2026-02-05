@@ -2,8 +2,10 @@
   <div>sdfgfd</div>
 </template>
 
-<script>
-export default {};
+<script setup>
+defineOptions({
+  name: "Commands",
+});
 </script>
 
 <style></style>
