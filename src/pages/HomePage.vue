@@ -44,7 +44,7 @@ function toggle(idx) {
           <li
             v-for="(item, idx) in questions"
             :key="item.question"
-            class="rounded-l-lg overflow-hidden relative border-b-4 border-l-4"
+            class="rounded-l-lg overflow-hidden relative border-b-4 border-l-4 rounded-md"
           >
             <button
               @click="toggle(idx)"
