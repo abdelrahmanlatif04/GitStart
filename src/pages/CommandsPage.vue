@@ -3,6 +3,7 @@ import { onMounted, reactive } from "vue";
 defineOptions({
   name: "Commands",
 });
+
 const gitCommands = reactive([
   {
     title: "Setup",
@@ -149,23 +150,11 @@ const gitCommands = reactive([
     ],
   },
 ]);
-
-const subArrays = reactive([]);
-
-onMounted(() => {
-  var length = Math.ceil(this.data.length / 2);
-
-  const result = new Array(length).fill().map((i) => {
-    return this.data.splice(0, length);
-  });
-
-  subArrays = result;
-});
 </script>
 
 <template>
-  <div class="max-w-5xl min-w-[400px] mx-auto p-6">
-    <ul class="space-y-10 font-sans">
+  <div class="min-w-[300px] p-2.5 max-w-[500px] mx-auto">
+    <ul class="space-y-10 font-sans mx-auto w-full">
       <li
         v-for="(category, idx) in gitCommands"
         :key="idx"
