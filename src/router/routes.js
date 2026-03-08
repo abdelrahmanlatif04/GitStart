@@ -1,5 +1,4 @@
 import HomePage from "../pages/HomePage.vue";
-import ChatBotPage from "../pages/ChatBotPage.vue";
 import CommandsPage from "../pages/CommandsPage.vue";
 import ResourcesPage from "../pages/ResourcesPage.vue";
 const routes = [
@@ -11,14 +10,7 @@ const routes = [
       icon: "mdi:home",
     },
   },
-  {
-    name: "Chatbot",
-    path: "/chatbot",
-    component: ChatBotPage,
-    meta: {
-      icon: "mdi:robot-happy",
-    },
-  },
+
   {
     name: "Commands",
     path: "/commands",

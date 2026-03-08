@@ -1,43 +1,60 @@
-<template>
-  <div class="min-w-20 px-5 mt-6">
-    <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
-      <li
-        v-for="item in resources"
-        :key="item.title"
-        class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition"
-      >
-        <a
-          :href="item.link"
-          target="_blank"
-          class="block px-4 py-3 text-gray-800 font-medium hover:text-blue-600"
-        >
-          {{ item.title }}
-        </a>
-      </li>
-    </ul>
-  </div>
-</template>
-
 <script setup>
-defineOptions({
-  name: "Resources",
-});
 const resources = [
   {
-    title: "Pro git",
+    title: "Pro Git",
     link: "https://git-scm.com/book/en/v2",
+    description:
+      "One of the most comprehensive Git books. Covers everything from basic commands to advanced Git internals and workflows.",
   },
   {
-    title: "Visualizer",
+    title: "Learn Git Branching",
     link: "https://learngitbranching.js.org/",
+    description:
+      "An interactive visual tool that helps you understand Git branching, merging, rebasing, and other concepts by practicing them directly.",
   },
   {
-    title: "Git notes for professionals",
+    title: "Git Notes for Professionals",
     link: "./GitNotesForProfessionals.pdf",
+    description:
+      "A structured collection of Git explanations and examples compiled from Stack Overflow documentation. Great as a quick reference.",
   },
   {
-    title: "Reddit",
-    link: "https://www.reddit.com/r/git/",
+    title: "Git Official Documentation",
+    link: "https://git-scm.com/docs",
+    description:
+      "The official Git documentation containing detailed explanations of every Git command and configuration option.",
+  },
+  {
+    title: "Oh My Git!",
+    link: "https://ohmygit.org/",
+    description:
+      "A fun open-source game that teaches Git concepts like commits, branches, and merges through interactive puzzles.",
+  },
+  {
+    title: "Git Cheat Sheet (GitHub)",
+    link: "https://education.github.com/git-cheat-sheet-education.pdf",
+    description:
+      "A quick reference sheet with the most commonly used Git commands, useful for beginners and daily workflows.",
   },
 ];
 </script>
+
+<template>
+  <section class="my-10 mx-5">
+    <h2 class="mb-5 text-3xl">Useful Git Resources</h2>
+    <ul class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
+      <li v-for="resource in resources" :key="resource.title">
+        <a
+          :href="resource.link"
+          target="_blank"
+          class="h-full bg-[#1f2937] rounded-xl p-4 block duration-200 hover:bg-[#111827] hover:translate-y-1 hover:-translate-x-0.5"
+        >
+          <h3 class="mb-2.5 text-xl">{{ resource.title }}</h3>
+          <p class="text-[#d1d5db] leading-6 text-sm">
+            {{ resource.description }}
+          </p>
+        </a>
+      </li>
+    </ul>
+  </section>
+</template>

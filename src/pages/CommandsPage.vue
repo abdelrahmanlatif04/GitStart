@@ -1,23 +1,23 @@
 <script setup>
-import { onMounted, reactive } from "vue";
-defineOptions({
-  name: "Commands",
-});
+import { ref } from "vue";
 
-const gitCommands = reactive([
+defineOptions({ name: "Commands" });
+const active = ref(0);
+
+const gitCommands = [
   {
     title: "Setup",
     description:
       "Commands used to initialize a repository or copy an existing one.",
     open: false,
     list: [
-      { command: "git init", description: "Creates a new Git repository" },
+      { command: "init", description: "Creates a new Git repository" },
       {
-        command: "git clone [url]",
+        command: "clone [url]",
         description: "Clone a repo into current directory",
       },
       {
-        command: "git clone [url] [dir]",
+        command: "clone [url] [dir]",
         description: "Clone a repo into a new directory",
       },
     ],
@@ -28,26 +28,26 @@ const gitCommands = reactive([
       "Commands for staging, committing, and reviewing local changes.",
     open: false,
     list: [
-      { command: "git add [file]", description: "Add file to staging area" },
+      { command: "add [file]", description: "Add file to staging area" },
       {
-        command: "git add .",
+        command: "add .",
         description: "Add all changed files to staging area",
       },
       {
-        command: "git add *.txt",
+        command: "add *.txt",
         description: "Add only text files to staging area",
       },
-      { command: "git commit", description: "Create commit and open editor" },
+      { command: "commit", description: "Create commit and open editor" },
       {
-        command: 'git commit -m "message"',
+        command: 'commit -m "message"',
         description: "Commit with message",
       },
       {
-        command: 'git commit -a -m "message"',
+        command: 'commit -a -m "message"',
         description: "Commit all tracked files",
       },
-      { command: "git diff", description: "Show unstaged changes" },
-      { command: "git diff --staged", description: "Show staged changes" },
+      { command: "diff", description: "Show unstaged changes" },
+      { command: "diff --staged", description: "Show staged changes" },
     ],
   },
   {
@@ -55,19 +55,19 @@ const gitCommands = reactive([
     description: "Commands to discard, revert, or clean up unwanted changes.",
     open: false,
     list: [
-      { command: "git reset HEAD [file]", description: "Unstage file" },
+      { command: "reset HEAD [file]", description: "Unstage file" },
       {
-        command: "git reset [commit-id]",
+        command: "reset [commit-id]",
         description: "Reset to specific commit",
       },
       {
-        command: "git clean -n",
+        command: "clean -n",
         description: "Preview untracked files deletion",
       },
-      { command: "git clean -f", description: "Delete untracked files" },
-      { command: "git revert HEAD", description: "Revert last commit" },
+      { command: "clean -f", description: "Delete untracked files" },
+      { command: "revert HEAD", description: "Revert last commit" },
       {
-        command: "git revert [commit-id]",
+        command: "revert [commit-id]",
         description: "Revert specific commit",
       },
     ],
@@ -78,12 +78,12 @@ const gitCommands = reactive([
       "Commands that modify existing commits and rewrite commit history.",
     open: false,
     list: [
-      { command: "git commit --amend", description: "Edit last commit" },
+      { command: "commit --amend", description: "Edit last commit" },
       {
-        command: "git commit --amend --no-edit",
+        command: "commit --amend --no-edit",
         description: "Amend without changing message",
       },
-      { command: "git rebase -i HEAD~n", description: "Rebase last n commits" },
+      { command: "rebase -i HEAD~n", description: "Rebase last n commits" },
     ],
   },
   {
@@ -91,17 +91,17 @@ const gitCommands = reactive([
     description: "Commands for managing and syncing with remote repositories.",
     open: false,
     list: [
-      { command: "git remote", description: "List remote repositories" },
-      { command: "git remote -v", description: "Show remote URLs" },
+      { command: "remote", description: "List remote repositories" },
+      { command: "remote -v", description: "Show remote URLs" },
       {
-        command: "git remote add origin [url]",
+        command: "remote add origin [url]",
         description: "Add remote repository",
       },
-      { command: "git fetch", description: "Fetch changes from remote" },
-      { command: "git pull", description: "Fetch and merge changes" },
-      { command: "git pull --rebase", description: "Pull using rebase" },
+      { command: "fetch", description: "Fetch changes from remote" },
+      { command: "pull", description: "Fetch and merge changes" },
+      { command: "pull --rebase", description: "Pull using rebase" },
       {
-        command: "git push origin master",
+        command: "push origin master",
         description: "Push commits to remote",
       },
     ],
@@ -112,11 +112,11 @@ const gitCommands = reactive([
       "Commands to view repository status, history, and commit details.",
     open: false,
     list: [
-      { command: "git status", description: "Show repo status" },
-      { command: "git log", description: "Show commit history" },
-      { command: "git log --oneline", description: "Condensed commit history" },
-      { command: "git log --graph", description: "Visual commit graph" },
-      { command: "git show", description: "Show last commit details" },
+      { command: "status", description: "Show repo status" },
+      { command: "log", description: "Show commit history" },
+      { command: "log --oneline", description: "Condensed commit history" },
+      { command: "log --graph", description: "Visual commit graph" },
+      { command: "show", description: "Show last commit details" },
     ],
   },
   {
@@ -125,16 +125,16 @@ const gitCommands = reactive([
       "Commands for creating, switching, merging, and deleting branches.",
     open: false,
     list: [
-      { command: "git branch", description: "List branches" },
-      { command: "git branch [name]", description: "Create new branch" },
-      { command: "git branch -d [name]", description: "Delete branch" },
-      { command: "git checkout [branch]", description: "Switch branch" },
+      { command: "branch", description: "List branches" },
+      { command: "branch [name]", description: "Create new branch" },
+      { command: "branch -d [name]", description: "Delete branch" },
+      { command: "checkout [branch]", description: "Switch branch" },
       {
-        command: "git checkout -b [branch]",
+        command: "checkout -b [branch]",
         description: "Create and switch branch",
       },
       {
-        command: "git merge [branch]",
+        command: "merge [branch]",
         description: "Merge branch into current",
       },
     ],
@@ -144,48 +144,78 @@ const gitCommands = reactive([
     description: "Commands for creating and managing version tags.",
     open: false,
     list: [
-      { command: "git tag", description: "List tags" },
-      { command: "git tag -a [name]", description: "Create annotated tag" },
-      { command: "git tag -d [name]", description: "Delete tag" },
+      { command: "tag", description: "List tags" },
+      { command: "tag -a [name]", description: "Create annotated tag" },
+      { command: "tag -d [name]", description: "Delete tag" },
     ],
   },
-]);
+];
+function scrollToSection(i) {
+  active.value = i;
+  document.getElementById("section-" + i)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}
 </script>
 
 <template>
-  <div class="min-w-[300px] p-2.5 max-w-[500px] mx-auto">
-    <ul class="space-y-10 font-sans mx-auto w-full">
-      <li
-        v-for="(category, idx) in gitCommands"
-        :key="idx"
-        class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md"
-      >
-        <div class="mb-6">
-          <h2
-            class="text-3xl font-extrabold uppercase tracking-wide text-gray-900"
+  <div class="flex flex-col lg:flex-row w-full">
+    <!-- Sidebar -->
+    <aside
+      class="lg:w-52 lg:h-screen fixed bg-[#010409] lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r overflow-x-auto"
+    >
+      <ul class="flex lg:flex-col gap-2 p-3 text-sm whitespace-nowrap">
+        <li v-for="(cat, i) in gitCommands" :key="cat.title">
+          <button
+            @click="scrollToSection(i)"
+            class="px-3 py-2 rounded-lg transition text-left"
+            :class="
+              active === i
+                ? 'bg-gray-200 text-black font-semibold'
+                : 'hover:bg-gray-100/20'
+            "
           >
+            {{ cat.title }}
+          </button>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <main class="flex-1 p-4 pt-20 sm:p-6 lg:p-10 space-y-12">
+      <section
+        v-for="(category, i) in gitCommands"
+        :key="category.title"
+        :id="'section-' + i"
+        class="space-y-4"
+      >
+        <div>
+          <h2 class="text-3xl sm:text-2xl font-bold">
             {{ category.title }}
           </h2>
-          <p class="mt-2 pl-1 text-sm text-gray-600">
+
+          <p class="text-base text-gray-500 max-w-xl">
             {{ category.description }}
           </p>
         </div>
 
-        <ul class="space-y-5">
+        <ul class="space-y-3">
           <li
-            v-for="item in category.list"
-            :key="item.command"
-            class="rounded-xl bg-gray-50 p-4 transition hover:bg-gray-100"
+            v-for="cmd in category.list"
+            :key="cmd.command"
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-l px-4 py-3 rounded-bl-md text-sm max-w-2xl"
           >
-            <p class="font-mono text-lg font-semibold text-indigo-600">
-              {{ item.command }}
-            </p>
-            <p class="mt-1 text-sm text-gray-700">
-              {{ item.description }}
-            </p>
+            <span class="font-mono text-base sm:text-lg font-semibold">
+              ~git {{ cmd.command }}
+            </span>
+
+            <span class="text-gray-600 text-sm">
+              {{ cmd.description }}
+            </span>
           </li>
         </ul>
-      </li>
-    </ul>
+      </section>
+    </main>
   </div>
 </template>

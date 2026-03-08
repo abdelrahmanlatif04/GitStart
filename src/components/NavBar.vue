@@ -22,6 +22,4 @@ routes.pop();
   </nav>
 </template>
 
-<style>
-
-</style>
+<style></style>
