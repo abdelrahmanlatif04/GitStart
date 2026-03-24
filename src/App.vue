@@ -6,9 +6,6 @@ import NavBar from "./components/NavBar.vue";
 <template>
   <div class="flex flex-col-reverse md:flex-col min-h-screen relative">
     <NavBar />
-    <keep-alive>
-      <router-view class="flex-1" />
-    </keep-alive>
-    <!-- <Footer /> -->
+    <router-view class="flex-1" />
   </div>
 </template>
