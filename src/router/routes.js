@@ -2,6 +2,7 @@ import HomePage from "../pages/HomePage.vue";
 import CommandsPage from "../pages/CommandsPage.vue";
 import ResourcesPage from "../pages/ResourcesPage.vue";
 import CommitsPage from "../pages/CommitsPage.vue";
+import NotFoundPage from "../pages/NotFoundPage.vue";
 const routes = [
   {
     name: "Home",
@@ -32,7 +33,7 @@ const routes = [
   {
     name: "Commits",
     path: "/commits",
-    component: CommitsPage  ,
+    component: CommitsPage,
     meta: {
       icon: "mdi:message",
     },
@@ -40,8 +41,9 @@ const routes = [
   {
     name: "Not Found",
     path: "/:catchAll(.*)",
-    redirect: {
-      path: "/",
+    component: NotFoundPage,
+    meta: {
+      icon: "mdi:message",
     },
   },
 ];

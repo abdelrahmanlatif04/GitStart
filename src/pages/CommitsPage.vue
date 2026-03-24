@@ -69,7 +69,7 @@ const commitTypes = [
       >
         <div class="flex flex-col md:flex-row md:items-center gap-3">
           <span
-            class="bg-[#fa0] text-white font-semibold px-4 py-2 rounded-full w-24 text-center"
+            class="bg-[#f05030] text-white font-semibold px-4 py-2 rounded-full w-24 text-center"
           >
             {{ item.type }}
           </span>
